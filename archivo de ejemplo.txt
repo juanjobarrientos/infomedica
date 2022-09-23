@@ -1,2 +1,2 @@
 Primer commit desde la rama altera a master para hacer un pull request
-proyecto de agendaminto de citas
+proyecto de agendaminto de citas llamado infomedica
