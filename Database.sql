@@ -60,5 +60,6 @@ CREATE TABLE historial(
     CONSTRAINT fk_id_ct FOREIGN KEY(id_ct) REFERENCES citas(id_ct)
    );
 
+
    ALTER TABLE historial
   ADD PRIMARY KEY (id_hs);
