@@ -1,5 +1,0 @@
-Primer commit desde la rama altera a master para hacer un pull request
-proyecto de agendaminto de citas llamado infomedica
-Commit 3 Milena Páramo
-Commit 4 Juana Cecilia Correa
-Trabajando en el sprint 2
