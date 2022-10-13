@@ -8,14 +8,13 @@ package com.infomedica.model;
  *
  * @author Jairo Jimenez
  */
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "historiales")
@@ -27,51 +26,30 @@ public class Historiales {
     private int id_hspk;
     
     @JoinColumn(name = "id_ct_fk",referencedColumnName="id_ct")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private int id_ctfk;
     
     @Column(name = "motivoConsulta_hs")
-    @NotNull(message = "El campo motivo consulta no puede estar null")
-    @Size(min = 5,max = 50,message = "el motivo consulta solo se "
-            + "permite un rango de 5 a 50 carateres")
     private String motivoConsulta;
     
     @Column(name = "antecedentes_hs")
-    @NotNull(message = "El campo antecedentes no puede estar null")
-    @Size(min = 5,max = 100,message = "los antecedentes solo se "
-            + "permite un rango de 5 a 100 carateres")
     private String antecedentes;
     
     @Column(name = "condicionesPrev_hs")
-    @NotNull(message = "El campo condiciones presvias no puede estar null")
-    @Size(min = 5,max = 100,message = "Condiciones previas solo se "
-            + "permite un rango de 5 a 100 carateres")
     private String condicionesPrev;
     
     @Column(name = "pesoPac_hs")
-    @NotNull(message = "El campo peso paciente no puede estar null")
     private float pesoPac;
     
     @Column(name = "estaturaPac_hs")
-    @NotNull(message = "El campo estatura paciente no puede estar null")
     private float estaturaPac;
     
     @Column(name = "ocupacionPac_hs")
-    @NotNull(message = "El campo ocupacion paciente no puede estar null")
-    @Size(min = 5,max = 20,message = "en ocupacion paciente solo se "
-            + "permite un rango de 5 a 20 carateres")
     private String ocupacionPac;
     
     @Column(name = "observaciones_hs")
-    @NotNull(message = "El campo observaciones no puede estar null")
-    @Size(min = 5,max = 150,message = "en observaciones solo se "
-            + "permite un rango de 5 a 150 carateres")
     private String observaciones;
     
     @Column(name = "medicamentos_hs")
-    @NotNull(message = "El campo medicamentos no puede estar null")
-    @Size(min = 5,max = 100,message = "en el campo medicamentos solo se "
-            + "permite un rango de 5 a 100 carateres")
     private String medicamentos;
 
     public Historiales() {

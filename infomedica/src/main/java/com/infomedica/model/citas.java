@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class citas {
+public class Citas {
 
 	@Id 
         @Column (name= "id_ct")
