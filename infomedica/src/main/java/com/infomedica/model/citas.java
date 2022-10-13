@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class citas {
 
 	@Id 
+        @Column (name= "id_ct")
         @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id_ct; 
         
