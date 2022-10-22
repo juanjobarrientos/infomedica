@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- https://material.io/resources/icons/?style=baseline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <!-- https://material.io/resources/icons/?style=outline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet" />
+    <!-- https://material.io/resources/icons/?style=round -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" />
+    <!-- https://material.io/resources/icons/?style=sharp -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet" />
+    <!-- https://material.io/resources/icons/?style=twotone -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet" />
+    <title>Historial-Paciente</title>
+    <style>
+        .sidebar {
+            background-color: #eaeaea;
+            height: 90vh !important;
+        }
+        
+        .taitel {
+            font-weight: bold;
+            text-align: center
+        }
+        
+        .form-control {
+            border: 2px solid rgb(0, 0, 0)
+        }
+        
+        .card w-75 mb-3 {
+            border: 2px solid rgb(0, 0, 0)
+        }
+        
+        .button {
+            width: 110px;
+            /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .form-label {
+            font-weight: bold
+        }
+        
+        .recuadro {
+            width: 90%;
+            height: 30px;
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-2 mt-2 h1">Infomedica</span>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 sidebar">
+                    <div class="container">
+                        <div class="row sidebar-title">
+                            <h4 class="mt-2">Tablero</h4>
+                            <hr />
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-primary mt-4 mb-3">
+                  + Historial Paciente
+                </button>
+                            <button class="btn btn-primary">Ver Historial Paciente</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="container mt-3">
+                        <div>
+
+                            <!--se puede borrar los divs abajo de este y trabajar desde aca  -->
+
+                            <div style="border: 2px solid rgb(0, 0, 0)" class="card w-75 mb-3">
+                                <div class="card-body">
+
+                                    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="card-title" id="flush-headingOne">
+                                                <div class="taitel">
+                                                    HISTORIAL PACIENTE
+                                                </div>
+                                                <hr style="height: 3px; background-color: rgb(0, 50, 249)" />
+                                            </h2>
+                                            <!-- identificación paciente -->
+                                            <div class="centro">
+                                                <div class="recuado">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Id. Del Paciente</label>
+                                                        <input style="width: 25%" type="number" class="form-control" id="id_hspk" placeholder="Ingrese Identificación">
+                                                    </div>
+                                                    <!-- motivo consulta paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Motivo de la Consulta</label>
+                                                        <input style="width: 70%" type="text" class="form-control" id="motivoConsulta" placeholder="Ingrese Motivo de Consulta">
+                                                    </div>
+                                                    <!-- antecedentes paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Antecedentes Del Paciente</label>
+                                                        <input style="width: 70%" type="text" class="form-control" id="antecedentes" placeholder="Ingrese Antecedentes">
+                                                    </div>
+                                                    <!-- condiciones previas del paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Condiciones Previas del Paciente</label>
+                                                        <input style="width: 70%" type="text" class="form-control" id="condicionesPrev" placeholder="Ingrese Condiciones Previas del Paciente ">
+                                                    </div>
+                                                    <!-- peso del paciente   -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Peso del Paciente</label>
+                                                        <input style="width: 20%" type="number" class="form-control" id="pesoPac" placeholder="Ingrese Peso">
+                                                    </div>
+                                                    <!-- estatura paciente   -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Estatura del Paciente</label>
+                                                        <input style="width: 20%" type="number" class="form-control" id="estaturaPac" placeholder="Ingrese Estatura">
+                                                    </div>
+                                                    <!-- ocupación paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Ocupación del Paciente</label>
+                                                        <input style="width: 40%" type="text" class="form-control" id="ocupacionPac" placeholder="Ingrese Ocupación">
+                                                    </div>
+                                                    <!-- observaciones paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Observaciones del Paciente</label>
+                                                        <input style="width: 60%" type="text" class="form-control" id="observaciones" placeholder="Ingrese Observaciones">
+                                                    </div>
+                                                    <!-- medicamentos paciente -->
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Medicamentos del Paciente</label>
+                                                        <input style="width: 60%" type="text" class="form-control" id="medicamentos" placeholder="Ingrese Medicamentos">
+                                                    </div>                                                    
+                                                    <hr style="height: 3px; background-color: rgb(0, 50, 249)" />
+                                                    <div class="button">
+                                                        <button class="btn btn-primary" id="guardar">Guardar</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
