@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo2.models;
 
 
 import javax.persistence.Column;
@@ -25,13 +25,10 @@ public class Citas {
 	private String hora_ct;
 	
 	@Column 
-	private int edadPac_ct; 
+	private String edadPac_ct; 
 	
 	@Column 
 	private String nombrePac_ct; 
-	
-	@Column 
-	private String pesoPac_ct;
 	
 	@Column 
 	private String sexoPac_ct;
@@ -68,11 +65,11 @@ public class Citas {
         this.hora_ct = hora_ct;
     }
 
-    public int getEdadPac_ct() {
+    public String getEdadPac_ct() {
         return edadPac_ct;
     }
 
-    public void setEdadPac_ct(int edadPac_ct) {
+    public void setEdadPac_ct(String edadPac_ct) {
         this.edadPac_ct = edadPac_ct;
     }
 
@@ -83,15 +80,7 @@ public class Citas {
     public void setNombrePac_ct(String nombrePac_ct) {
         this.nombrePac_ct = nombrePac_ct;
     }
-
-    public String getPesoPac_ct() {
-        return pesoPac_ct;
-    }
-
-    public void setPesoPac_ct(String pesoPac_ct) {
-        this.pesoPac_ct = pesoPac_ct;
-    }
-
+    
     public String getSexoPac_ct() {
         return sexoPac_ct;
     }

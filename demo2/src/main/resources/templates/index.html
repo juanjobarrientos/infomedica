@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- https://material.io/resources/icons/?style=baseline -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- https://material.io/resources/icons/?style=outline -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <!-- https://material.io/resources/icons/?style=round -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <!-- https://material.io/resources/icons/?style=sharp -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <!-- https://material.io/resources/icons/?style=twotone -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <title>Infomedica - Gestion de citas medicas</title>
+    <style>
+      .sidebar {
+        background-color: #eaeaea;
+        height: 90vh !important ;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-2 mt-2 h1">Infomedica</span>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 sidebar">
+            <div class="container">
+              <div class="row sidebar-title">
+                <h4 class="mt-2">Tablero</h4>
+                <hr />
+              </div>
+              <div class="row">
+                <a href="/agregar" class="btn btn-primary mt-4 mb-3">
+                  + Agendar citas
+                </a>
+                <a href="/" class="btn btn-primary">Ver Citas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="container mt-3">
+              <div class="row" id="principal">
+                <!--se puede borrar los divs abajo de este y trabajar desde aca  -->
+                <h3>Citas Asignadas</h3>
+                <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+    const getData = () =>{
+      fetch("http://localhost:8080/citas")
+        .then((res)=>res.json())
+        .then((res)=>{
+          let citas = res;
+          console.log(citas)
+          let principal = document.querySelector("#principal")
+          citas.forEach(element => {
+          let contenedor = document.createElement("div")
+          contenedor.setAttribute("class","card w-75 mb-3")
+          contenedor.innerHTML = `
+          <div class="card-body">
+            <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+              <div class="accordion-item mb-3">
+                <h2 class="card-title" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    ${element.fecha_ct} - ${element.nombrePac_ct}
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="card-content">
+                      HORA: ${element.hora_ct} <br>
+                      DIRECCION : ${element.direccion_ct} <br>
+                      EDAD PACIENTE : ${element.edadPac_ct} <br>
+                      SEXO PACIENTE : ${element.sexoPac_ct} <br>
+                    </p>
+                    <a href="/historial/${element.id_ct+1}" class="btn btn-primary">Historial de Cita</a>
+                  </div>
+                </div>
+            </div>              
+              <form action="/delete" method="post">
+                <a href="/editarcita/${element.id_ct}" class="btn btn-primary">Editar</a>
+                <input type="hidden" value="${element.id_ct}" name="id_ct">
+                <button class="btn btn-danger">Eliminar</button>
+              </form>
+          </div>
+          `
+          principal.appendChild(contenedor)});
+      return citas})
+    }
+    
+    getData()
+
+  </script>
+</html>
